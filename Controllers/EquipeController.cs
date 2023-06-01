@@ -28,7 +28,7 @@ namespace projeto_gamer.Controllers
         }
 
         [Route("Cadastrar")]//Da rota cadastrar
-         public IActionResult Cadastrar(IFormCollection form) //iformcolection é uma classe de formulario
+        public IActionResult Cadastrar(IFormCollection form) //iformcolection é uma classe de formulario
         {
             //Istancia um objeto da model Equipe
             Equipe novaEquipe = new Equipe();
@@ -44,7 +44,7 @@ namespace projeto_gamer.Controllers
             {
                 var file = form.Files[0];
 
-                var folder = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/img/Equipes");
+                var folder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/Equipes");
 
                 if (!Directory.Exists(folder))
                 {
@@ -52,7 +52,7 @@ namespace projeto_gamer.Controllers
                 }
 
                 //gera o caminho completo at[e o caminho do arquivo(imagem - nome da extensao)
-                var path = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/img/", folder, file.FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/", folder, file.FileName);
 
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
@@ -76,6 +76,28 @@ namespace projeto_gamer.Controllers
             //retorna para o local chamada a rota de listar(metodo index)
             return LocalRedirect("~/Equipe/Listar");
         }
+
+        [Route("Excluir/{id}")]
+        public IActionResult Excluir(int id)
+        {
+            //expressão lambida para encontrar a equipe que deseja excluir pelo id
+            Equipe equipeEncontrada = c.Equipe.FirstOrDefault( e => e.IdEquipe == id);
+
+            //remove do banco de dados
+            c.Remove(equipeEncontrada);
+
+            //salva as alterações
+            c.SaveChanges();
+            
+            //retorna para o local chamada a rota de listar(metodo index)
+            return LocalRedirect("~/Equipe/Listar");
+        }
+
+        // [Route("Editar")]
+        // public IActionResult Editar
+        // {
+            
+        // }
 
 
 

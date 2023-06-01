@@ -20,6 +20,8 @@
         <th>Id</th>
         <th>Nome</th>
         <th>Imagem</th>
+        <th>Excluir</th>
+        <th>Editar</th>
     </thead>
 
     <tbody>
@@ -30,7 +32,10 @@
                 <td>@equipe.IdEquipe</td>
                 <td>@equipe.Nome</td>
                 <td>
-                    <img src="/img/Equipes/@equipe.Imagem" alt="imagem da equipe @equipe.Imagem" width="50px">
+                    <img src="/img/Equipes/@equipe.Imagem" alt="imagem da equipe @equipe.Imagem" width="30px">
+                </td>
+                <td>
+                    <a asp-area="" asp-action="Excluir" asp-controller="Equipe" asp-route-id="@equipe.IdEquipe"> <button type="button" class="btn btn-danger">Excluir</button></a>
                 </td>
             </tr>
         }

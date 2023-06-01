@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\55358961879\\Desktop\\projeto-gamer\\projeto-gamer.csproj": {}
+    "C:\\Users\\55358961879\\Desktop\\projeto_gamer\\projeto-gamer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\55358961879\\Desktop\\projeto-gamer\\projeto-gamer.csproj": {
+    "C:\\Users\\55358961879\\Desktop\\projeto_gamer\\projeto-gamer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\55358961879\\Desktop\\projeto-gamer\\projeto-gamer.csproj",
+        "projectUniqueName": "C:\\Users\\55358961879\\Desktop\\projeto_gamer\\projeto-gamer.csproj",
         "projectName": "projeto-gamer",
-        "projectPath": "C:\\Users\\55358961879\\Desktop\\projeto-gamer\\projeto-gamer.csproj",
+        "projectPath": "C:\\Users\\55358961879\\Desktop\\projeto_gamer\\projeto-gamer.csproj",
         "packagesPath": "C:\\Users\\55358961879\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\55358961879\\Desktop\\projeto-gamer\\obj\\",
+        "outputPath": "C:\\Users\\55358961879\\Desktop\\projeto_gamer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\55358961879\\AppData\\Roaming\\NuGet\\NuGet.Config",
