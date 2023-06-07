@@ -20,8 +20,7 @@
         <th>Id</th>
         <th>Nome</th>
         <th>Imagem</th>
-        <th>Excluir</th>
-        <th>Editar</th>
+        <th>Actions</th>
     </thead>
 
     <tbody>
@@ -36,7 +35,10 @@
                 </td>
                 <td>
                     <a asp-area="" asp-action="Excluir" asp-controller="Equipe" asp-route-id="@equipe.IdEquipe"> <button type="button" class="btn btn-danger">Excluir</button></a>
+
+                    <a asp-area="" asp-action="Editar" asp-controller="Equipe" asp-route-id="@equipe.IdEquipe"> <button type="button" class="btn btn-info">Editar</button></a>
                 </td>
+                
             </tr>
         }
 

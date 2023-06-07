@@ -20,6 +20,7 @@ namespace projeto_gamer.Controllers
         [Route("Listar")] //http://localhost/Equipe/Listar
         public IActionResult Index()
         {
+            ViewBag.UserName = HttpContext.Session.GetString("UserName");
             //variavel que armazena as equipes listadas no banco
             ViewBag.Equipe = c.Equipe.ToList();
 
@@ -81,25 +82,76 @@ namespace projeto_gamer.Controllers
         public IActionResult Excluir(int id)
         {
             //expressão lambida para encontrar a equipe que deseja excluir pelo id
-            Equipe equipeEncontrada = c.Equipe.FirstOrDefault( e => e.IdEquipe == id);
+            Equipe equipeEncontrada = c.Equipe.FirstOrDefault(e => e.IdEquipe == id);
 
             //remove do banco de dados
             c.Remove(equipeEncontrada);
 
             //salva as alterações
             c.SaveChanges();
-            
+
             //retorna para o local chamada a rota de listar(metodo index)
             return LocalRedirect("~/Equipe/Listar");
         }
 
-        // [Route("Editar")]
-        // public IActionResult Editar
-        // {
+        [Route("Edit/{id}")]
+        public IActionResult Editar(int id)
+        {
+            ViewBag.UserName = HttpContext.Session.GetString("UserName");
             
-        // }
+            Equipe equipe = c.Equipe.FirstOrDefault(x => x.IdEquipe == id);
 
+            ViewBag.Equipe = equipe;
 
+            return View("Edit");
+        }
+
+        [Route("Atualizar")]
+        public IActionResult Atualizar(IFormCollection form)
+        {
+            Equipe novaEquipe = new Equipe();
+
+            novaEquipe.IdEquipe = int.Parse(form["IdEquipe"].ToString());
+
+            novaEquipe.Nome = form["Nome"].ToString();
+
+            if (form.Files.Count > 0)
+            {
+                var file = form.Files[0];
+
+                var folder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/Equipes");
+
+                if (!Directory.Exists(folder))
+                {
+                    Directory.CreateDirectory(folder);
+                }
+
+                //gera o caminho completo at[e o caminho do arquivo(imagem - nome da extensao)
+                var path = Path.Combine(folder, file.FileName);
+
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+
+                novaEquipe.Imagem = file.FileName;
+            }
+            else
+            {
+                novaEquipe.Imagem = "padrao.png";
+            }
+
+            Equipe equipeBuscada = c.Equipe.First(x => x.IdEquipe == novaEquipe.IdEquipe);
+
+            equipeBuscada.Nome = novaEquipe.Nome;
+            equipeBuscada.Imagem = novaEquipe.Imagem;
+
+            c.Equipe.Update(equipeBuscada);
+
+            c.SaveChanges();
+
+            return LocalRedirect("  Equipe/Listar");
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

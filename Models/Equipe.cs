@@ -6,12 +6,10 @@ namespace projeto_gamer.Models
     {
         [Key] //data annotation - IdEquipe
         public int IdEquipe { get; set; }
-        [Required]
-
         public string? Nome { get; set; }        
         public string? Imagem { get; set; }
 
         //referencia que a classe equipe vai ter acesso a collectionm "Jogador"
-        public ICollection<Jogador>? Jogador {get; set;}
+        public ICollection<Jogador> Jogador {get; set;}
     }
 }
