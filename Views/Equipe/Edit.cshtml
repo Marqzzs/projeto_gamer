@@ -4,15 +4,25 @@
     ViewData["Title"] = "Edit";
 }
 
-<h2>Edição de Equipes</h2>
+@if (ViewBag.UserName == null)
+{
+    <a asp-area="" asp-controller="Login" asp-action="Index">
+        Login
+    </a>
+}
+else
+{
+    <h2>Edição de Equipes</h2>
 
-<form method="post" action="@Url.Action("Atualizar")" enctype="multipart/form-data">
+    <form method="post" action="@Url.Action("Atualizar")" enctype="multipart/form-data">
 
-    <input placeholder="" type="hidden" name="IdEquipe" value="@ViewBag.Equipe.IdEquipe">
+        <input placeholder="" type="hidden" name="IdEquipe" value="@ViewBag.Equipe.IdEquipe">
 
-    <input placeholder="Nome da Equipe" type="text" name="Nome" value="@ViewBag.Equipe.Nome">
+        <input placeholder="Nome da Equipe" type="text" name="Nome" value="@ViewBag.Equipe.Nome">
 
-    <input placeholder="Imagem da Equipe" type="file" name="Imagem" value="@ViewBag.Equipe.Imagem">
+        <input placeholder="Imagem da Equipe" type="file" name="Imagem" value="@ViewBag.Equipe.Imagem">
 
-    <button type="submit" class="btn btn-success">Atualizar</button>
-</form>
+        <button type="submit" class="btn btn-success">Atualizar</button>
+    </form>
+}
+
