@@ -150,7 +150,7 @@ namespace projeto_gamer.Controllers
 
             c.SaveChanges();
 
-            return LocalRedirect("  Equipe/Listar");
+            return LocalRedirect("~/Equipe/Listar");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

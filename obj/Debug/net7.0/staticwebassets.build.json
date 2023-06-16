@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3XyZLwJ6uDIWpwUunigy4pGuqzoZDMmHtaCbRcFGhiw=",
+  "Hash": "H14PLmYmcEi21ZxRsQXBDBXlD1SybZY+4KfJRO9us2g=",
   "Source": "projeto-gamer",
   "BasePath": "_content/projeto-gamer",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\Botao_voltar_ao_topo.svg"
+    },
+    {
+      "Identity": "C:\\Users\\55358961879\\Desktop\\projeto_gamer\\wwwroot\\assets\\edit.svg",
+      "SourceId": "projeto-gamer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\55358961879\\Desktop\\projeto_gamer\\wwwroot\\",
+      "BasePath": "_content/projeto-gamer",
+      "RelativePath": "assets/edit.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\edit.svg"
     },
     {
       "Identity": "C:\\Users\\55358961879\\Desktop\\projeto_gamer\\wwwroot\\assets\\envelope-icon.png",
@@ -1086,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\equipes.css"
+    },
+    {
+      "Identity": "C:\\Users\\55358961879\\Desktop\\projeto_gamer\\wwwroot\\css\\jogadores.css",
+      "SourceId": "projeto-gamer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\55358961879\\Desktop\\projeto_gamer\\wwwroot\\",
+      "BasePath": "_content/projeto-gamer",
+      "RelativePath": "css/jogadores.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\jogadores.css"
     },
     {
       "Identity": "C:\\Users\\55358961879\\Desktop\\projeto_gamer\\wwwroot\\css\\login.css",

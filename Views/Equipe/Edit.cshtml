@@ -1,28 +1,37 @@
 @model Equipe
-
+<link rel="stylesheet" href="~/css/equipes.css">
 @{
     ViewData["Title"] = "Edit";
 }
 
-@if (ViewBag.UserName == null)
-{
-    <a asp-area="" asp-controller="Login" asp-action="Index">
-        Login
-    </a>
-}
-else
-{
-    <h2>Edição de Equipes</h2>
+@* <!-- MAIN --> *@
+<main>
+    <section class="container-grid cadastro-equipes">
+        @if (ViewBag.UserName == null)
+        {
+            <a asp-area="" asp-controller="Login" asp-action="Index">
+                Login
+            </a>
+        }
+        else
+        {
+            <form method="post" action="@Url.Action("Atualizar")" enctype="multipart/form-data" class="frm-cad-equipe">
+                <div class="cadequipe-titulo">
+                    <h1>Edição de Equipes</h1>
+                    <hr>
+                </div>
 
-    <form method="post" action="@Url.Action("Atualizar")" enctype="multipart/form-data">
+                <input placeholder="" type="hidden" name="IdEquipe" value="@ViewBag.Equipe.IdEquipe">
+                <input class="campo-entrada" type="text" placeholder="Nome da Equipe:" name="Nome"
+                    value="@ViewBag.Equipe.Nome" required">
 
-        <input placeholder="" type="hidden" name="IdEquipe" value="@ViewBag.Equipe.IdEquipe">
+                <label class="foto" for="foto-file">
+                    <input type="file" id="foto-file" name="Imagem">
+                </label>
 
-        <input placeholder="Nome da Equipe" type="text" name="Nome" value="@ViewBag.Equipe.Nome">
+                <button type="submit">Atualizar</button>
 
-        <input placeholder="Imagem da Equipe" type="file" name="Imagem" value="@ViewBag.Equipe.Imagem">
-
-        <button type="submit" class="btn btn-success">Atualizar</button>
-    </form>
-}
-
+            </form>
+        }
+    </section>
+</main>

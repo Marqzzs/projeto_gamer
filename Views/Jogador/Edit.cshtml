@@ -1,10 +1,8 @@
 @model Jogador
-
+<link rel="stylesheet" href="~/css/jogadores.css">
 @{
     ViewData["Title"] = "Edit";
 }
-
-<h2>Edição de Jogadores</h2>
 
 @if (ViewBag.UserName == null)
 {
@@ -14,6 +12,51 @@
 }
 else
 {
+    <main>
+
+        <section class="container-grid cadastro-equipes">
+
+
+            <form method="post" action='@Url.Action("Atualizar")' class="frm-cad-equipe">
+                <div class="cadequipe-titulo">
+                    <h1>Edição de Jogadores</h1>
+                    <hr>
+                </div>
+
+                <select class="campo-entrada"  name="IdEquipe" id="equipe-select">
+                    <option value="0">Selecione uma Equipe</option>
+                    @foreach (Equipe e in ViewBag.Equipe)
+                    {
+                        @if (e.IdEquipe == @ViewBag.Jogador.IdEquipe)
+                        {
+                            <option value="@e.IdEquipe" selected>@e.Nome</option>
+                        }
+                        else
+                        {
+                            <option value="@e.IdEquipe">@e.Nome</option>
+                        }
+                    }
+                </select>
+                
+                <input type="hidden" name="IdJogador" value="@ViewBag.jogador.IdJogador">
+                <input class="campo-entrada" placeholder="Nome" name="Nome" value="@ViewBag.Jogador.Nome" type="text" required>
+                <input class="campo-entrada" placeholder="Email" name="Email" value="@ViewBag.Jogador.Email" type="email" required>
+                <input class="campo-entrada" placeholder="Senha" name="Senha" value="@ViewBag.Jogador.Senha" type="password" required>
+                <button type="submit">Atualizar</button>
+
+            </form>
+        </section>
+    </main>
+
+
+
+
+
+
+
+
+
+
     <form method="post" action="@Url.Action("Atualizar")">
 
         <input type="hidden" name="IdJogador" value="@ViewBag.jogador.IdJogador">
@@ -29,7 +72,7 @@ else
 
             @foreach (Equipe e in ViewBag.Equipe)
             {
-                @if (e.IdEquipe == @ViewBag.JOgador.IdEquipe)
+                @if (e.IdEquipe == @ViewBag.Jogador.IdEquipe)
                 {
                     <option value="@e.IdEquipe" selected>@e.Nome</option>
                 }
