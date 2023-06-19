@@ -83,6 +83,10 @@
                 <input type="checkbox" id="mostra-esconde-icones">
                 <div class="icons-header-bkg">
                     <div class="icons-header">
+                        @if (ViewBag.Username != null)
+                        {
+                            <a asp-area="" asp-action="Logout" asp-controller="Login"><img src="~/assets/logout.svg" alt=""></a>
+                        }
                         <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index"><img
                                 src="~/assets/user-icon.svg" alt="user-login"></a>
 
